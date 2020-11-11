@@ -1,0 +1,14 @@
+{
+  "cache": {
+    "cacheLocation": "localStorage"
+  },
+  "resources": {
+    "portalApi": {
+      "resourceUri": "https://localhost:44368"
+    }
+  },
+  "environment": {
+    "description": "Local",
+    "currentVersion": "In Development"
+  }
+}
