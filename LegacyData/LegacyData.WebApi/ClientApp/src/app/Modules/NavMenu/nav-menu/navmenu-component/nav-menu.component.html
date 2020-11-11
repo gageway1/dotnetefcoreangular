@@ -1,19 +1,33 @@
 <header>
-  <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-danger text-white border-bottom box-shadow mb-3">
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light
+    bg-danger text-white border-bottom box-shadow mb-3 pb-3">
     <div class="container">
-      <a class="navbar-brand text-white" [routerLink]="['/']">LegacyData</a>
+      <a class="navbar-brand navbrand text-white" onclick="this.blur();" [routerLink]="['/']">LegacyData</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
         aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]="{ show: isExpanded }">
         <ul class="navbar-nav flex-grow">
-          <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-white" [routerLink]="['passport']">Passport</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle nav-link text-white" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Passport
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item nav-link hoverlink" [routerLink]="['passport']">Search By Name</a>
+              <a class="dropdown-item nav-link hoverlink" [routerLink]="['passport/id']">Search By ID</a>
+            </div>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-white" [routerLink]="['vta']">VTA</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle nav-link text-white" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              VTA
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item nav-link hoverlink" [routerLink]="['vta']">Search By Name</a>
+              <a class="dropdown-item nav-link hoverlink" [routerLink]="['vta/id']">Search By ID</a>
+            </div>
           </li>
         </ul>
       </div>

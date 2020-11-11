@@ -8,7 +8,6 @@ using Xunit;
 
 namespace LegacyData.Test
 {
-
     [Collection("LegacyDataTests")]
     public class PassportInactiveAllUnitTest : IDisposable
     {
@@ -44,6 +43,15 @@ namespace LegacyData.Test
             Assert.True(passportInactiveAllData.Id != 0);
             Assert.Equal("test@gmail.com", passportInactiveAllData.Email);
             Assert.Equal("test?", passportInactiveAllData.An);
+        }
+
+        [Theory]
+        [InlineData("Joe", "Smith")]
+        [InlineData("joe", "smith")]
+        public async void ShouldBeCaseInsensitive(string firstName, string lastName)
+        {
+            var result = await _passportInactiveAllDataRepo.GetPassportInactiveAllDataByNameAsync(firstName, lastName);
+            Assert.Single(result);
         }
     }
 }

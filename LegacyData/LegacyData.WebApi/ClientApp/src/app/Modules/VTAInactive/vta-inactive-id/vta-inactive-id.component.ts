@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Passport } from 'src/app/Models/passport';
-import { PassportInactiveService } from '../../passport-inactive.service';
+import { VTA } from 'src/app/Models/vta';
+import { VtaInactiveService } from '../vta-inactive.service';
 
 @Component({
-  selector: 'app-passport-inactive',
-  templateUrl: './passport-inactive.component.html',
-  styleUrls: ['./passport-inactive.component.css']
+  selector: 'app-vta-inactive-id',
+  templateUrl: './vta-inactive-id.component.html',
+  styleUrls: ['./vta-inactive-id.component.css']
 })
-export class PassportInactiveComponent implements OnInit {
+export class VtaInactiveIdComponent implements OnInit {
 
-  public passports: Passport[];
+  public vta: VTA;
   public form: FormGroup;
   public submitted: boolean = false;
 
   constructor(
     private fb: FormBuilder,
-    private service: PassportInactiveService,
+    private service: VtaInactiveService,
     private toast: ToastrService
   ) { }
 
@@ -31,22 +31,18 @@ export class PassportInactiveComponent implements OnInit {
 
   public buildForm() {
     this.form = this.fb.group({
-      firstName: [],
-      lastName: []
+      id: []
     });
   }
 
   public submitForm(form: FormGroup) {
-    this.passports = null;
-    if (this.form.get('firstName').value || this.form.get('lastName').value) {
+    this.vta = null;
+    if (this.form.value) {
       this.submitted = true;
       this.form = form;
-      this.service.getPassportDataByName(this.form.get('firstName').value, this.form.get('lastName').value).subscribe(res => {
+      this.service.getVtaInactiveDataById(this.form.get('id').value).subscribe(res => {
         if (res) {
-          this.passports = res;
-          if (this.passports.length == 0) {
-            this.passports = null;
-          }
+          this.vta = res;
           console.log(res);
         }
       }, err => {

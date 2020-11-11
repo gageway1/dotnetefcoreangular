@@ -1,3 +1,7 @@
+C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.csprojAssemblyReference.cache
+C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.AssemblyInfoInputs.cache
+C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.AssemblyInfo.cs
+C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.csproj.CoreCompileInputs.cache
 C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\bin\Debug\netcoreapp3.1\LegacyData.WebApi.Views.dll
 C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\bin\Debug\netcoreapp3.1\LegacyData.WebApi.Views.pdb
 C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -161,10 +165,6 @@ C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\bin\Debug\netcor
 C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\bin\Debug\netcoreapp3.1\LegacyData.Dal.pdb
 C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\bin\Debug\netcoreapp3.1\LegacyData.Models.pdb
 C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\bin\Debug\netcoreapp3.1\LegacyData.WebApi.pdb
-C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.csprojAssemblyReference.cache
-C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.AssemblyInfoInputs.cache
-C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.AssemblyInfo.cs
-C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.csproj.CoreCompileInputs.cache
 C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.csproj.CopyComplete
 C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.dll
 C:\Projects\DotNetCoreAngularStarter\LegacyData\LegacyData.Test\obj\Debug\netcoreapp3.1\LegacyData.Test.pdb

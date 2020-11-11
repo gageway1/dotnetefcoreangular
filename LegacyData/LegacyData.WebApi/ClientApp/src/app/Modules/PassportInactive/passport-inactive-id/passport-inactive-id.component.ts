@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Passport } from 'src/app/Models/passport';
-import { PassportInactiveService } from '../../passport-inactive.service';
+import { PassportInactiveService } from '../passport-inactive.service';
 
 @Component({
-  selector: 'app-passport-inactive',
-  templateUrl: './passport-inactive.component.html',
-  styleUrls: ['./passport-inactive.component.css']
+  selector: 'app-passport-inactive-id',
+  templateUrl: './passport-inactive-id.component.html',
+  styleUrls: ['./passport-inactive-id.component.css']
 })
-export class PassportInactiveComponent implements OnInit {
+export class PassportInactiveIdComponent implements OnInit {
 
-  public passports: Passport[];
+  public passport: Passport;
   public form: FormGroup;
   public submitted: boolean = false;
 
@@ -31,22 +31,18 @@ export class PassportInactiveComponent implements OnInit {
 
   public buildForm() {
     this.form = this.fb.group({
-      firstName: [],
-      lastName: []
+      id: []
     });
   }
 
   public submitForm(form: FormGroup) {
-    this.passports = null;
-    if (this.form.get('firstName').value || this.form.get('lastName').value) {
+    this.passport = null;
+    if (this.form.value) {
       this.submitted = true;
       this.form = form;
-      this.service.getPassportDataByName(this.form.get('firstName').value, this.form.get('lastName').value).subscribe(res => {
+      this.service.getPassportDataById(this.form.get('id').value).subscribe(res => {
         if (res) {
-          this.passports = res;
-          if (this.passports.length == 0) {
-            this.passports = null;
-          }
+          this.passport = res;
           console.log(res);
         }
       }, err => {

@@ -1,6 +1,7 @@
 using LegacyData.Dal.DataInitialization;
 using LegacyData.Dal.EfStructures;
 using LegacyData.Dal.Repos;
+using LegacyData.Dal.Repos.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -34,7 +35,17 @@ namespace LegacyData
             services.AddControllers();
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<LegacyDataContext>(options => options.UseSqlServer(connectionString, o => o.EnableRetryOnFailure()));
+
+            /*********************************
+             ADD YOUR REPOSITORY CLASSES HERE
+             *********************************/
+
             services.AddScoped<IPassportInactiveAllDataRepo, PassportInactiveAllDataRepo>();
+            services.AddScoped<IVTAInactiveAllDataRepo, VTAInactiveAllDataRepo>();
+            
+            /*LIKE THIS*/
+            //services.AddScoped<ITestNewClassRepo, TestNewClassRepo>();
+
             services.AddCors(options =>
             {
                 options.AddPolicy("default",

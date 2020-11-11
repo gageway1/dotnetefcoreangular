@@ -4,16 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
     {
         path: '',
-        loadChildren: () => import('src/app/Modules/Home/home-module/home.module').then(m => m.HomeModule),
+        loadChildren: () => import('src/app/Modules/PassportInactive/passport-inactive.module').then(m => m.PassportInactiveModule),
         pathMatch: 'full'
     },
     {
         path: 'passport',
-        loadChildren: () => import('src/app/Modules/PassportInactive/passport-inactive/passport-inactive.module').then(m => m.PassportInactiveModule),
+        loadChildren: () => import('src/app/Modules/PassportInactive/passport-inactive.module').then(m => m.PassportInactiveModule),
     },
     {
         path: 'vta',
-        loadChildren: () => import('src/app/Modules/vtainactive/vtainactive/vtainactive.module').then(m => m.VTAInactiveModule),
+        loadChildren: () => import('src/app/Modules/vtainactive/vtainactive.module').then(m => m.VTAInactiveModule),
     }
 ];
 

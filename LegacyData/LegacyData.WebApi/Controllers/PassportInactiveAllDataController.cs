@@ -30,7 +30,7 @@ namespace LegacyData.Controllers
         [HttpGet("api/passportInactiveAllDataByName")]
         public async Task<IActionResult> GetPassportInactiveAllDataByName(string firstName, string lastName)
         {
-            return new OkObjectResult(await _iPassportInactiveAllDataRepo.GetPassportInactiveAllDataByName(firstName, lastName));
+            return new OkObjectResult(await _iPassportInactiveAllDataRepo.GetPassportInactiveAllDataByNameAsync(firstName, lastName));
         }
     }
 }

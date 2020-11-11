@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { PassportInactiveIdComponent } from './passport-inactive-id.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('PassportInactiveIdComponent', () => {
+  let component: PassportInactiveIdComponent;
+  let fixture: ComponentFixture<PassportInactiveIdComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ PassportInactiveIdComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(PassportInactiveIdComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

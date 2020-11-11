@@ -20,6 +20,7 @@ namespace LegacyData.Dal.DataInitialization
 
         internal static void SeedData(LegacyDataContext context)
         {
+            //Copy this if block and make one for your DBSet
             if (!context.PassportInactiveAllDatas.Any())
             {
                 try
@@ -94,6 +95,7 @@ namespace LegacyData.Dal.DataInitialization
 
         private static void ClearData(LegacyDataContext context)
         {
+            //Copy one of these and replace with your table name
             context.Database.ExecuteSqlRaw("Delete from LegacyData.CP01PassportInactiveAllData");
             context.Database.ExecuteSqlRaw("Delete from LegacyData.CP01VTAInactiveAllData");
             context.Database.ExecuteSqlRaw("Delete from LegacyData.TestNewClass");
@@ -105,6 +107,7 @@ namespace LegacyData.Dal.DataInitialization
         {
             var tables = new[]
             {
+                //add your table here
                 "CP01VTAInactiveAllData",
                 "CP01PassportInactiveAllData",
                 "TestNewClass"

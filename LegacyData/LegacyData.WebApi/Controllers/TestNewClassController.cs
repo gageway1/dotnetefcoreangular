@@ -12,6 +12,7 @@ namespace LegacyData.Controllers
     [ApiController]
     public class TestNewClassController : ControllerBase
     {
+        //THIS IS HOW YOUR CONTROLLER SHOULD LOOK
         private readonly ILogger<TestNewClassController> _logger;
         private readonly ITestNewClassRepo _iTestNewClassRepo;
 
@@ -21,8 +22,8 @@ namespace LegacyData.Controllers
             _iTestNewClassRepo = iTestNewClassRepo;
         }
 
-        [HttpGet("api/passportInactiveAllDataById")]
-        public async Task<IActionResult> GetPassportInactiveAllDataById(int id)
+        [HttpGet("api/getTestNewClassById")]
+        public async Task<IActionResult> GetTestClassById(int id)
         {
             return new OkObjectResult(await _iTestNewClassRepo.GetTestClassById(id));
         }

@@ -1,15 +1,15 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Passport } from 'src/app/Models/passport';
+import { VTA } from 'src/app/Models/vta';
 import { ApiService } from 'src/app/Services/api.service';
 import { BaseService } from 'src/app/Services/base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PassportInactiveService extends BaseService {
+export class VtaInactiveService extends BaseService {
 
   constructor(
     private apiService: ApiService,
@@ -18,19 +18,18 @@ export class PassportInactiveService extends BaseService {
     super();
   }
 
-
-  public getPassportDataById(id: number): Observable<Passport> {
-    const apiUrl = `${this.apiService.baseApiUrl}/passportInactiveAllDataById`;
-    return this.http.get<Passport>(`${apiUrl}?id=${id}`)
+  public getVtaInactiveDataById(id: number): Observable<VTA> {
+    const apiUrl = `${this.apiService.baseApiUrl}/getVtaInactiveAllDataById`;
+    return this.http.get<VTA>(`${apiUrl}?id=${id}`)
       .pipe(
         tap(() => {
-          console.log('Fetched PassportInactiveAllData record.');
+          console.log('Fetched VTAInactiveAllData record.');
         }));
   }
 
-  public getPassportDataByName(firstName: string, lastName: string): Observable<Passport[]> {
+  public getVtaInactiveDataByName(firstName: string, lastName: string): Observable<VTA[]> {
     console.log(firstName + " " + lastName)
-    const apiUrl = `${this.apiService.baseApiUrl}/passportInactiveAllDataByName`;
+    const apiUrl = `${this.apiService.baseApiUrl}/getVtaInactiveAllDataByName`;
     let params = "";
     if (firstName && lastName) {
       params += `?firstName=${firstName}&lastName=${lastName}`
@@ -41,12 +40,14 @@ export class PassportInactiveService extends BaseService {
     if (lastName && !firstName) {
       params += `?lastName=${lastName}`
     }
-    return this.http.get<Passport[]>(`${apiUrl}${params}`)
+    return this.http.get<VTA[]>(`${apiUrl}${params}`)
       .pipe(
         tap(() => {
-          console.log('Fetched PassportInactiveAllData record(s).');
+          console.log('Fetched VTAInactiveAllData record(s).');
         }));
   }
 
 
+
 }
+

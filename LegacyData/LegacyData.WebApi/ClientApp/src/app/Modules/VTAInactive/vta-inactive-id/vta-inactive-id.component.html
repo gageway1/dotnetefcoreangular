@@ -1,0 +1,50 @@
+<div class="row mt-5">
+    <div class="col-6 mx-auto">
+        <div class="card border-dark">
+            <div class="card-header bg-success text-white">
+                <div class="d-flex justify-content-center">Search By ID</div>
+            </div>
+            <div class="card-body">
+                <div *ngIf="form" class="row">
+                    <form [formGroup]="form" (ngSubmit)="submitForm(form)" class="col-12">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" formControlName="id" placeholder="ID"
+                                aria-label="ID">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-outline-secondary">Search <i
+                                        class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div *ngIf="vta" class="row">
+    <div class="col-12">
+        <div class="card border-info">
+            <div class="card-header bg-info text-white">
+                <div class="row">
+                    <div class="col-3 ml-1">
+                        {{vta.firstname}} {{vta.lastname}}
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div *ngFor="let item of vta | keyvalue">
+                    <span class="control-label font-weight-bold">
+                        {{item.key | titlecase}}
+                    </span>
+                    <br />
+                    {{item.value || "No record"}}
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="submitted && !vta">
+        <span class="text-danger d-flex justify-content-center">No results</span>
+    </div>

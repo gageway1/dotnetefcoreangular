@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { VtaInactiveComponent } from './vta-inactive/vta-inactive.component';
+import { VtaInactiveIdComponent } from './vta-inactive-id/vta-inactive-id.component';
+import { VtaInactiveComponent } from './vtainactive/vta-inactive/vta-inactive.component';
 
 
 const routes: Routes = [
@@ -8,6 +9,10 @@ const routes: Routes = [
     path: '',
     component: VtaInactiveComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'id',
+    component: VtaInactiveIdComponent
   }
 ];
 

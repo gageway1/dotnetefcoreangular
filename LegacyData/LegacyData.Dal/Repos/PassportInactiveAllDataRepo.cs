@@ -1,7 +1,10 @@
 ﻿using LegacyData.Dal.EfStructures;
+using LegacyData.Dal.Exceptions;
 using LegacyData.Dal.Repos.Interfaces.Base;
 using LegacyData.Models.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,9 +22,25 @@ namespace LegacyData.Dal.Repos
             return await Table.FindAsync(id);
         }
 
-        public async Task<List<PassportInactiveAllData>> GetPassportInactiveAllDataByName(string firstName, string lastName)
+        public async Task<List<PassportInactiveAllData>> GetPassportInactiveAllDataByNameAsync(string firstName, string lastName)
         {
-            return await Table.Where(p => p.UserFirstName == firstName && p.UserLastName == lastName).ToListAsync();
+            if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName))
+            {
+                return new List<PassportInactiveAllData>();
+            }
+
+            var q = Table.AsQueryable();
+            if (!string.IsNullOrEmpty(firstName))
+            {
+                q = q.Where(x => x.UserFirstName == firstName);
+            }
+
+            if (!string.IsNullOrEmpty(lastName))
+            {
+                q = q.Where(x => x.UserLastName == lastName);
+            }
+
+            return await q.ToListAsync();
         }
     }
 }
