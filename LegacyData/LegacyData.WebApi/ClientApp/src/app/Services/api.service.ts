@@ -7,7 +7,7 @@ import { ConfigService } from './config.service';
 export class ApiService {
 
   constructor(private config: ConfigService) {
-    this.baseApiUrl = `https://localhost:44368/api`;
+    this.baseApiUrl = `https://localhost:44378/api`;
   }
 
   public baseApiUrl: string;

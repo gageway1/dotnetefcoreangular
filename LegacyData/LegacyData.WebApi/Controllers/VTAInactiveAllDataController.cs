@@ -31,5 +31,12 @@ namespace LegacyData.Portal.Controllers
         {
             return new OkObjectResult(await _iVTAInactiveAllDataRepo.GetVtaInactiveAllDataByNameAsync(firstName, lastName));
         }
+
+        [HttpGet("api/getVtaInactiveFullEntryById")]
+        public async Task<IActionResult> GetVtaFullEntryById(int id)
+        {
+            return new OkObjectResult(await _iVTAInactiveAllDataRepo.GetVtaFullEntryByIdAsync(id));
+        }
+
     }
 }

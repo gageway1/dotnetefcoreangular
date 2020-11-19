@@ -4,14 +4,16 @@ using LegacyData.Dal.EfStructures;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LegacyData.Dal.EfStructures.Migrations
 {
     [DbContext(typeof(LegacyDataContext))]
-    partial class LegacyDataContextModelSnapshot : ModelSnapshot
+    [Migration("20201118114211_RemoveTimestamp")]
+    partial class RemoveTimestamp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

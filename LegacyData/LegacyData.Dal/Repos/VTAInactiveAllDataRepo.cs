@@ -17,9 +17,13 @@ namespace LegacyData.Dal.Repos
         {
         }
 
-        public async Task<VTAInactiveAllData> GetVtaInactiveAllDataByIdAsync(int id)
+        public async Task<List<VTAInactiveAllData>> GetVtaInactiveAllDataByIdAsync(int id)
         {
-            return await Table.FindAsync(id);
+            var q = Table.AsQueryable();
+            List<VTAInactiveAllData> vtaList = new List<VTAInactiveAllData>();
+            q = q.Where(x => x.emp_id == id.ToString());
+            var result = q.ToListAsync();
+            return await result;
         }
 
         public async Task<List<VTAInactiveAllData>> GetVtaInactiveAllDataByNameAsync(string firstName, string lastName)
@@ -41,6 +45,11 @@ namespace LegacyData.Dal.Repos
             }
             var result = q.ToListAsync();
             return await result;
+        }
+
+        public async Task<VTAInactiveAllData> GetVtaFullEntryByIdAsync(int id)
+        {
+            return await Table.FindAsync(id);
         }
     }
 }

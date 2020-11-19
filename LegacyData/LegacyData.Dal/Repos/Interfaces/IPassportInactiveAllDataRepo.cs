@@ -7,7 +7,8 @@ namespace LegacyData.Dal.Repos
 {
     public interface IPassportInactiveAllDataRepo : IRepo<PassportInactiveAllData>
     {
-        Task<PassportInactiveAllData> GetPassportInactiveAllDataByIdAsync(int id);
+        Task<List<PassportInactiveAllData>> GetPassportInactiveAllDataByIdAsync(int id);
         Task<List<PassportInactiveAllData>> GetPassportInactiveAllDataByNameAsync(string firstName, string lastName);
+        Task<PassportInactiveAllData> GetPassportFullEntryByIdAsync(int id);
     }
 }

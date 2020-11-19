@@ -1,3 +1,4 @@
+import { PassportInactiveFullViewComponent } from './passport-inactive-full-view/passport-inactive-full-view.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PassportInactiveIdComponent } from './passport-inactive-id/passport-inactive-id.component';
@@ -13,7 +14,11 @@ const routes: Routes = [
   {
     path: 'id',
     component: PassportInactiveIdComponent,
-  }
+  },
+  {
+    path: 'id/fullView',
+    component: PassportInactiveFullViewComponent
+  },
 ];
 
 @NgModule({

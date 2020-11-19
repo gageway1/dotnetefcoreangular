@@ -1,3 +1,4 @@
+import { VTAInactiveFullViewComponent } from './vtainactive-full-view/vtainactive-full-view.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { VtaInactiveIdComponent } from './vta-inactive-id/vta-inactive-id.component';
@@ -12,8 +13,12 @@ const routes: Routes = [
   },
   {
     path: 'id',
-    component: VtaInactiveIdComponent
-  }
+    component: VtaInactiveIdComponent,
+  },
+  {
+    path: 'id/fullView',
+    component: VTAInactiveFullViewComponent
+  },
 ];
 
 @NgModule({

@@ -19,34 +19,44 @@ export class PassportInactiveService extends BaseService {
   }
 
 
-  public getPassportDataById(id: number): Observable<Passport> {
+  public getPassportDataById(id: number): Observable<Passport[]> {
     const apiUrl = `${this.apiService.baseApiUrl}/passportInactiveAllDataById`;
-    return this.http.get<Passport>(`${apiUrl}?id=${id}`)
+    return this.http.get<Passport[]>(`${apiUrl}?id=${id}`)
       .pipe(
         tap(() => {
-          console.log('Fetched PassportInactiveAllData record.');
+          console.log('Fetched VTAInactiveAllData record.');
         }));
   }
 
-  public getPassportDataByName(firstName: string, lastName: string): Observable<Passport[]> {
-    console.log(firstName + " " + lastName)
+  public getFullPassportEntryById(id: number): Observable<Passport> {
+    const apiUrl = `${this.apiService.baseApiUrl}/getPassportInactiveFullEntryById`;
+    return this.http.get<Passport>(`${apiUrl}?id=${id}`)
+      .pipe(
+        tap(() => {
+          console.log('Fetched VTAInactiveAllData record.');
+        }));
+  }
+
+  public getPassportInactiveDataByName(firstName: string, lastName: string): Observable<Passport[]> {
+    console.log(firstName + ' ' + lastName);
     const apiUrl = `${this.apiService.baseApiUrl}/passportInactiveAllDataByName`;
-    let params = "";
+    let params = '';
     if (firstName && lastName) {
-      params += `?firstName=${firstName}&lastName=${lastName}`
+      params += `?firstName=${firstName}&lastName=${lastName}`;
     }
     if (firstName && !lastName) {
       params += `?firstName=${firstName}`;
     }
     if (lastName && !firstName) {
-      params += `?lastName=${lastName}`
+      params += `?lastName=${lastName}`;
     }
     return this.http.get<Passport[]>(`${apiUrl}${params}`)
       .pipe(
         tap(() => {
-          console.log('Fetched PassportInactiveAllData record(s).');
+          console.log('Fetched VTAInactiveAllData record(s).');
         }));
   }
+
 
 
 }

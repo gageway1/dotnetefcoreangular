@@ -1,4 +1,4 @@
-import { Base } from "./base";
+import { Base } from './base';
 
 export interface VTA extends Base {
     emp_group: string;

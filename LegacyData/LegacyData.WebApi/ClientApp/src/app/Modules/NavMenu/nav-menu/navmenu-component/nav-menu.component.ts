@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,6 +9,12 @@ import { Component } from '@angular/core';
 export class NavMenuComponent {
   isExpanded = false;
 
+  constructor(
+    private toast: ToastrService,
+  ) {
+
+  }
+
   collapse() {
     this.isExpanded = false;
   }
@@ -15,4 +22,10 @@ export class NavMenuComponent {
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
+
+  public login(): void {
+    // log in???
+    this.toast.warning('This doesn\'t work yet!');
+  }
+
 }

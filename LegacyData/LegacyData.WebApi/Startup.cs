@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace LegacyData
 {
@@ -30,6 +31,14 @@ namespace LegacyData
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Legacy Training Data API",
+                    Version = "v1"
+                });
+            });
 
             services.AddAuthorization();
             services.AddControllers();
@@ -42,7 +51,7 @@ namespace LegacyData
 
             services.AddScoped<IPassportInactiveAllDataRepo, PassportInactiveAllDataRepo>();
             services.AddScoped<IVTAInactiveAllDataRepo, VTAInactiveAllDataRepo>();
-            
+
             /*LIKE THIS*/
             //services.AddScoped<ITestNewClassRepo, TestNewClassRepo>();
 
@@ -64,6 +73,13 @@ namespace LegacyData
                 var context = new LegacyDataContextFactory().CreateDbContext(new string[] { });
                 context.Database.Migrate();
                 LegacyDataInitializer.InitializeData(context);
+
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Legacy Training API V1");
+                });
+
             }
             else
             {

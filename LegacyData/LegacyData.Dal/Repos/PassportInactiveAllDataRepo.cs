@@ -17,9 +17,14 @@ namespace LegacyData.Dal.Repos
         {
         }
 
-        public async Task<PassportInactiveAllData> GetPassportInactiveAllDataByIdAsync(int id)
+        public async Task<List<PassportInactiveAllData>> GetPassportInactiveAllDataByIdAsync(int id)
         {
-            return await Table.FindAsync(id);
+            var q = Table.AsQueryable();
+            List<PassportInactiveAllData> vtaList = new List<PassportInactiveAllData>();
+            q = q.Where(x => x.UserId == id.ToString());
+            var result = q.ToListAsync();
+            return await result;
+
         }
 
         public async Task<List<PassportInactiveAllData>> GetPassportInactiveAllDataByNameAsync(string firstName, string lastName)
@@ -39,8 +44,13 @@ namespace LegacyData.Dal.Repos
             {
                 q = q.Where(x => x.UserLastName == lastName);
             }
+            var result = q.ToListAsync();
+            return await result;
+        }
 
-            return await q.ToListAsync();
+        public async Task<PassportInactiveAllData> GetPassportFullEntryByIdAsync(int id)
+        {
+            return await Table.FindAsync(id);
         }
     }
 }

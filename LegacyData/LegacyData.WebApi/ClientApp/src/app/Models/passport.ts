@@ -1,4 +1,4 @@
-import { Base } from "./base";
+import { Base } from './base';
 
 export interface Passport extends Base {
     userId: string;
@@ -10,7 +10,7 @@ export interface Passport extends Base {
     entityTitle: string;
     completionDate: string;
     completionStatus: string;
-    Grade: string;
+    grade: string;
     creditHours: string;
     TotalHours: string;
     entityAssignmentType: string;

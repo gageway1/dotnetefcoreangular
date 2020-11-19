@@ -1,3 +1,4 @@
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -12,6 +13,7 @@ import { NavMenuComponent } from './navmenu-component/nav-menu.component';
   imports: [
     CommonModule,
     RouterModule,
+    AngularFontAwesomeModule
   ]
 })
 export class NavMenuModule { }

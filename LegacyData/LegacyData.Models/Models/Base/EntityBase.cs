@@ -11,7 +11,9 @@ namespace LegacyData.Models.Models.Base
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Timestamp] public byte[] TimeStamp { get; set; }
+        // DO NOT REMOVE THESE
+
+        //[Timestamp] public byte[] TimeStamp { get; set; }
 
         //[Required]
         //[Column]

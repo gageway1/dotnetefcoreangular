@@ -18,8 +18,17 @@ export class VtaInactiveService extends BaseService {
     super();
   }
 
-  public getVtaInactiveDataById(id: number): Observable<VTA> {
+  public getVtaInactiveDataByEmployeeId(id: number): Observable<VTA[]> {
     const apiUrl = `${this.apiService.baseApiUrl}/getVtaInactiveAllDataById`;
+    return this.http.get<VTA[]>(`${apiUrl}?id=${id}`)
+      .pipe(
+        tap(() => {
+          console.log('Fetched VTAInactiveAllData record.');
+        }));
+  }
+
+  public getFullVTAEntryById(id: number): Observable<VTA> {
+    const apiUrl = `${this.apiService.baseApiUrl}/getVtaInactiveFullEntryById`;
     return this.http.get<VTA>(`${apiUrl}?id=${id}`)
       .pipe(
         tap(() => {
@@ -38,7 +47,7 @@ export class VtaInactiveService extends BaseService {
       params += `?firstName=${firstName}`;
     }
     if (lastName && !firstName) {
-      params += `?lastName=${lastName}`
+      params += `?lastName=${lastName}`;
     }
     return this.http.get<VTA[]>(`${apiUrl}${params}`)
       .pipe(

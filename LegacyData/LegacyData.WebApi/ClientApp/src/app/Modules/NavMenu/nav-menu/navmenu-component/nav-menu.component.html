@@ -1,8 +1,12 @@
 <header>
   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light
-    bg-danger text-white border-bottom box-shadow mb-3 pb-3">
+    bg-primary text-white border-bottom box-shadow mb-3 pb-3">
+    <a class="navbar-brand" style="text-align: left; padding: 0;" [routerLink]="['./']">
+      <img src="assets/speedway-logo-flat.png" height="50" class="d-inline-block align-top picture" alt=""
+        style="border-radius: 5px;">
+      <span class="navbar-brand navbrand text-white ml-5" onclick="this.blur();" [routerLink]="['/']">LegacyData</span>
+    </a>
     <div class="container">
-      <a class="navbar-brand navbrand text-white" onclick="this.blur();" [routerLink]="['/']">LegacyData</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
         aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
@@ -31,6 +35,11 @@
           </li>
         </ul>
       </div>
+    </div>
+    <div class="mr-5">
+      <button class="btn btn-lg btn-success" (click)="login()">
+        Sign In&nbsp;<fa name="sign-in"></fa>
+      </button>
     </div>
   </nav>
 </header>

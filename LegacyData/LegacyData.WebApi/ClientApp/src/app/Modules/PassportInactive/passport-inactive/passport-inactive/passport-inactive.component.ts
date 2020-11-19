@@ -13,7 +13,7 @@ export class PassportInactiveComponent implements OnInit {
 
   public passports: Passport[];
   public form: FormGroup;
-  public submitted: boolean = false;
+  public submitted = false;
 
   constructor(
     private fb: FormBuilder,
@@ -41,20 +41,19 @@ export class PassportInactiveComponent implements OnInit {
     if (this.form.get('firstName').value || this.form.get('lastName').value) {
       this.submitted = true;
       this.form = form;
-      this.service.getPassportDataByName(this.form.get('firstName').value, this.form.get('lastName').value).subscribe(res => {
+      this.service.getPassportInactiveDataByName(this.form.get('firstName').value, this.form.get('lastName').value).subscribe(res => {
         if (res) {
           this.passports = res;
-          if (this.passports.length == 0) {
+          if (this.passports.length === 0) {
             this.passports = null;
           }
           console.log(res);
         }
       }, err => {
         console.log('Error retrieving request: ', err);
-        this.toast.error("Error retrieving request.", "Error", { positionClass: 'toast-bottom-right' });
+        this.toast.error('Error retrieving request.', 'Error', { positionClass: 'toast-bottom-right' });
       });
-    }
-    else {
+    } else {
       if (this.toast.currentlyActive) { }
       this.form.markAsDirty();
       this.form.markAllAsTouched();

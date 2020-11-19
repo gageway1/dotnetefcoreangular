@@ -1,0 +1,28 @@
+<div *ngIf="vtaEntry" class="row">
+  <div class="col-12">
+    <div class="card border-info">
+      <div class="card-header bg-success text-white">
+        <div class="row">
+          <div class="col-12">
+            {{ vtaEntry.firstname | titlecase }}
+            {{ vtaEntry.lastname | titlecase }}
+            <button (click)="downloadFile(vtaEntry)" class="btn btn-info float-right">
+              <fa name="download"></fa>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div *ngFor="let item of vtaEntry | keyvalue">
+          <span class="control-label font-weight-bold">
+            {{ item.key | titlecase }}
+          </span>
+          <br />
+          {{ item.value || "No record" }}
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

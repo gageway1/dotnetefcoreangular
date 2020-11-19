@@ -5,15 +5,20 @@ import { VTAInactiveRoutingModule } from './vtainactive-routing.module';
 import { SharedModule } from '../Shared/shared/shared.module';
 import { VtaInactiveIdComponent } from './vta-inactive-id/vta-inactive-id.component';
 import { VtaInactiveComponent } from './vtainactive/vta-inactive/vta-inactive.component';
+import { VTAInactiveFullViewComponent } from './vtainactive-full-view/vtainactive-full-view.component';
 
 
 
 @NgModule({
-  declarations: [VtaInactiveComponent, VtaInactiveIdComponent],
+  declarations: [
+    VtaInactiveComponent,
+    VtaInactiveIdComponent,
+    VTAInactiveFullViewComponent
+  ],
   imports: [
     CommonModule,
     VTAInactiveRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class VTAInactiveModule { }

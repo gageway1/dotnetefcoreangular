@@ -22,15 +22,21 @@ namespace LegacyData.Controllers
         }
 
         [HttpGet("api/passportInactiveAllDataById")]
-        public async Task<IActionResult> GetPassportInactiveAllDataById(int id)
+        public async Task<IActionResult> GetVtaInactiveById(int id)
         {
             return new OkObjectResult(await _iPassportInactiveAllDataRepo.GetPassportInactiveAllDataByIdAsync(id));
         }
 
         [HttpGet("api/passportInactiveAllDataByName")]
-        public async Task<IActionResult> GetPassportInactiveAllDataByName(string firstName, string lastName)
+        public async Task<IActionResult> GetVTAInactiveByName(string firstName, string lastName)
         {
             return new OkObjectResult(await _iPassportInactiveAllDataRepo.GetPassportInactiveAllDataByNameAsync(firstName, lastName));
+        }
+
+        [HttpGet("api/getPassportInactiveFullEntryById")]
+        public async Task<IActionResult> GetVtaFullEntryById(int id)
+        {
+            return new OkObjectResult(await _iPassportInactiveAllDataRepo.GetPassportFullEntryByIdAsync(id));
         }
     }
 }
