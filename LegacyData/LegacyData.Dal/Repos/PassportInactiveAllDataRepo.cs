@@ -17,7 +17,7 @@ namespace LegacyData.Dal.Repos
         {
         }
 
-        public async Task<List<PassportInactiveAllData>> GetPassportInactiveAllDataByIdAsync(int id)
+        public async Task<List<PassportInactiveAllData>> GetPassportInactiveAllDataListByIdAsync(int id)
         {
             var q = Table.AsQueryable();
             List<PassportInactiveAllData> vtaList = new List<PassportInactiveAllData>();
@@ -27,7 +27,7 @@ namespace LegacyData.Dal.Repos
 
         }
 
-        public async Task<List<PassportInactiveAllData>> GetPassportInactiveAllDataByNameAsync(string firstName, string lastName)
+        public async Task<List<PassportInactiveAllData>> GetPassportInactiveAllDataListByNameAsync(string firstName, string lastName)
         {
             if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName))
             {

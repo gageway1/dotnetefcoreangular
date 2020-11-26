@@ -51,7 +51,7 @@ namespace LegacyData.Test.RepoTests
         [InlineData("joe", "smith")]
         public async void ShouldBeCaseInsensitive(string firstName, string lastName)
         {
-            var result = await _vtaInactiveAllDataRepo.GetVtaInactiveAllDataByNameAsync(firstName, lastName);
+            var result = await _vtaInactiveAllDataRepo.GetVtaInactiveAllDataListByNameAsync(firstName, lastName);
             Assert.Single(result);
         }
     }

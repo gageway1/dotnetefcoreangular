@@ -30,6 +30,13 @@ code {
   width: 100%;
 }
 
+.toast-bottom-right-large {
+  bottom: 12px;
+  right: 124px;
+  width: 200px;
+  height: 50px;
+}
+
 .toast-bottom-center {
   bottom: 0;
   right: 0;
@@ -206,7 +213,7 @@ button.toast-close-button {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 4px;
+  height: 8px;
   background-color: #000000;
   opacity: 0.4;
 }
@@ -7625,6 +7632,70 @@ button.bg-warning:hover,
 button.bg-warning:focus {
   background-color: #ac6819 !important;
 }
+
+
+.tile-linear-bg-info {
+  background-image: linear-gradient(#06abe7, #029acf 6%, #028fc0);
+  border: 3px solid #029acf;
+
+}
+
+.home-button {
+  background-image: linear-gradient(#ff002b, #c4021c 6%, #af0101);
+  border: 1px solid #d40000;
+  border-radius: 10px;
+}
+
+.home-button:hover {
+  filter: brightness(95%);
+  transition: 0.125s;
+}
+
+.home-button:focus {
+  filter: brightness(90%);
+  transition: 0.125s;
+}
+
+.tile-linear-bg-primary {
+  background-image: linear-gradient(#e61336, #bd021b 6%, #990000);
+  border: 3px solid #bd021b;
+}
+
+.tile-linear-bg-success {
+  background-image: linear-gradient(#02de39, #04a326 6%, #039403);
+  border: 3px solid #04a326;
+}
+
+.tile-linear-bg-success:hover {
+  filter: brightness(95%);
+  transition: 0.125s;
+}
+
+.tile-linear-bg-success:focus {
+  filter: brightness(90%);
+  transition: 0.125s;
+}
+
+.tile-linear-bg-danger {
+  background-image: linear-gradient(#a800ad, #920392 6%, #78007c);
+  border: 3px solid #920392;
+}
+
+.tile-linear-bg-warning {
+  background-image: linear-gradient(#ff9102, #e28000 6%, #da7b00);
+  border: 3px solid #e28000;
+}
+
+.tile-linear-bg-danger:hover {
+  filter: brightness(95%);
+  transition: 0.125s;
+}
+
+.tile-linear-bg-danger:focus {
+  filter: brightness(90%);
+  transition: 0.125s;
+}
+
 
 .bg-danger {
   background-color: #9b479f !important;

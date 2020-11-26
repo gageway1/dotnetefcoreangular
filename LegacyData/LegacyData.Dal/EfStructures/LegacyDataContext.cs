@@ -16,8 +16,10 @@ namespace LegacyData.Dal.EfStructures
 
         public DbSet<PassportInactiveAllData> PassportInactiveAllDatas { get; set; }
         public DbSet<VTAInactiveAllData> VTAInactiveAllDatas { get; set; }
+
         /******ADD YOUR CLASS TO THE DBSET LIKE THIS******/
         public DbSet<TestNewClass> TestNewClasses { get; set; }
+        public DbSet<Dogs> Dogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

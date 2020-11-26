@@ -1,44 +1,30 @@
 <header>
   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light
-    bg-primary text-white border-bottom box-shadow mb-3 pb-3">
-    <a class="navbar-brand" style="text-align: left; padding: 0;" [routerLink]="['./']">
+  nav-bg-gradient-primary text-white box-shadow mb-3 pb-3">
+    <a class="navbar-brand" style="text-align: left; padding: 0;" [routerLink]="['/']">
       <img src="assets/speedway-logo-flat.png" height="50" class="d-inline-block align-top picture" alt=""
         style="border-radius: 5px;">
-      <span class="navbar-brand navbrand text-white ml-5" onclick="this.blur();" [routerLink]="['/']">LegacyData</span>
+      <span class="navbar-brand text-white ml-5" onclick="this.blur();">
+        LegacyData</span><span *ngIf="user && user.authenticated"
+        class="text-white">|&nbsp;&nbsp;&nbsp;{{user.name}}</span>
     </a>
     <div class="container">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-        aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]="{ show: isExpanded }">
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle nav-link text-white" id="navbarDropdown" role="button"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Passport
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item nav-link hoverlink" [routerLink]="['passport']">Search By Name</a>
-              <a class="dropdown-item nav-link hoverlink" [routerLink]="['passport/id']">Search By ID</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle nav-link text-white" id="navbarDropdown" role="button"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              VTA
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item nav-link hoverlink" [routerLink]="['vta']">Search By Name</a>
-              <a class="dropdown-item nav-link hoverlink" [routerLink]="['vta/id']">Search By ID</a>
-            </div>
-          </li>
-        </ul>
-      </div>
     </div>
-    <div class="mr-5">
-      <button class="btn btn-lg btn-success" (click)="login()">
-        Sign In&nbsp;<fa name="sign-in"></fa>
+    <button class="btn text-white home-button p-2 mr-5" onclick="this.blur()">
+      <h4>
+        &nbsp;<i class="fa fa-home"></i>&nbsp;
+      </h4>
+    </button>
+    <div *ngIf="!user" class="mr-5">
+      <button class="btn btn-lg tile-linear-bg-success text-white" id="signinbutton" (click)="login()"
+        onclick="this.blur()">
+        Sign In&nbsp;<i class="fa fa-sign-in"></i>
+      </button>
+    </div>
+    <div *ngIf="user && user.authenticated" class="mr-5">
+      <button class="btn btn-lg tile-linear-bg-danger text-white" id="signinbutton" (click)="logOut()"
+        onclick="this.blur()">
+        Sign Out&nbsp;<i class="fa fa-sign-out"></i>
       </button>
     </div>
   </nav>

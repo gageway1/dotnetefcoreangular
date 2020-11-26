@@ -1,7 +1,7 @@
 <div class="row mt-5">
   <div class="col-6 mx-auto">
-    <div class="card border-dark">
-      <div class="card-header bg-success text-white">
+    <div class="card border-success">
+      <div class="card-header tile-linear-bg-success text-white">
         <div class="d-flex justify-content-center">Search By ID</div>
       </div>
       <div class="card-body">
@@ -25,7 +25,7 @@
 <div *ngIf="passport" class="row">
   <div class="col-12">
     <div class="card border-info">
-      <div class="card-header bg-info text-white">
+      <div class="card-header tile-linear-bg-info text-white">
         <span class="font-weight-bold">
           {{ passport[0].userFirstName | titlecase }} {{ passport[0].userLastName | titlecase }}
         </span>

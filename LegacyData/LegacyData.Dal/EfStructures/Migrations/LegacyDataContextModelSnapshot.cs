@@ -19,6 +19,40 @@ namespace LegacyData.Dal.EfStructures.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("LegacyData.Models.Models.Dogs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AgeInYears")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("CheckingAccountAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("LocationX")
+                        .HasColumnType("real");
+
+                    b.Property<float>("LocationY")
+                        .HasColumnType("real");
+
+                    b.Property<string>("MiddleInit")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Dogs","LegacyData");
+                });
+
             modelBuilder.Entity("LegacyData.Models.Models.PassportInactiveAllData", b =>
                 {
                     b.Property<int>("Id")

@@ -4,6 +4,7 @@ using LegacyData.Dal.Repos;
 using LegacyData.Dal.Repos.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -39,7 +40,7 @@ namespace LegacyData
                     Version = "v1"
                 });
             });
-
+            services.AddAuthentication(IISDefaults.AuthenticationScheme);
             services.AddAuthorization();
             services.AddControllers();
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
@@ -51,6 +52,7 @@ namespace LegacyData
 
             services.AddScoped<IPassportInactiveAllDataRepo, PassportInactiveAllDataRepo>();
             services.AddScoped<IVTAInactiveAllDataRepo, VTAInactiveAllDataRepo>();
+            services.AddScoped<IDogsRepo, DogsRepo>();
 
             /*LIKE THIS*/
             //services.AddScoped<ITestNewClassRepo, TestNewClassRepo>();

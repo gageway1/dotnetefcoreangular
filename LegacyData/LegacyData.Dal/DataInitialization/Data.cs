@@ -6,6 +6,36 @@ namespace LegacyData.Dal.DataInitialization
 {
     public static class Data
     {
+        public static IList<Dogs> GetDogs()
+        {
+            List<Dogs> dogList = new List<Dogs>()
+            {
+                new Dogs
+                {
+                    AgeInYears = 8,
+                    CheckingAccountAmount = 1234m,
+                    FirstName = "John",
+                    MiddleInit = 'F',
+                    LastName = "Josephine",
+                    Id = 1,
+                    LocationX = 100.000f,
+                    LocationY = 200.025f
+                },
+                new Dogs
+                {
+                    AgeInYears = 10,
+                    CheckingAccountAmount = 3124891.5893m,
+                    FirstName = "Joe",
+                    MiddleInit = 'M',
+                    LastName = "Herbert",
+                    Id = 2,
+                    LocationX = 105.000f,
+                    LocationY = 205.025f
+                },
+            };
+            return dogList;
+        }
+
         public static IList<PassportInactiveAllData> GetPassportInactiveAllDatas()
         {
             List<string> firstNames = new List<string>();
@@ -47,7 +77,7 @@ namespace LegacyData.Dal.DataInitialization
                 Comments = "COMMENTS " + rng.Next(0, int.MaxValue-1).ToString(),
                 CompletionDate = new DateTimeOffset(DateTime.Now).ToString(),
                 CompletionStatus = "Completed",
-                EmployeeLearningJobTitle = "Intern AF",
+                EmployeeLearningJobTitle = "Intern",
                 Costcenter = "That cost center",
                 CreditHours = rng.Next(1,5000).ToString(),
                 EmployeeLegacyIndicator = "L" + rng.Next(1,5000).ToString(),

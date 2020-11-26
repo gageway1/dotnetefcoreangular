@@ -16,7 +16,6 @@ import { VTAInactiveFullViewComponent } from './vtainactive-full-view/vtainactiv
     VTAInactiveFullViewComponent
   ],
   imports: [
-    CommonModule,
     VTAInactiveRoutingModule,
     SharedModule,
   ]

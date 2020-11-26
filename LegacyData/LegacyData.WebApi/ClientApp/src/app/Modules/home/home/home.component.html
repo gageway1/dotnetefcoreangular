@@ -1,0 +1,37 @@
+<ng-container *ngIf="tileCategories && user">
+  <!-- *ngIf="isAuthorized" -->
+  <div class="row mb-5">
+    <div class="col-12">
+      <div *ngFor="let cats of tileCategories; let i = index; let perms of user.permissions">
+        <div *ngIf="cats.tiles && user.permissions.includes(cats.permissionId)" class="module-section mb-3">
+          <h2>
+            {{cats.categoryName}}
+          </h2>
+          <hr />
+          <div class="row">
+            <div class="col-2" *ngFor="let item of cats.tiles">
+              <div class="card card-sharp mt-3">
+                <a class="card-block text-decoration-none" [routerLink]="item.route"
+                  routerLinkActive="router-link-active">
+                  <div class="{{cats.tileColorClass}} inner-tile-text card-sharp text-center">
+                    <h2 style>
+                      <i class="{{item.tileIcon}}"></i> {{item.description}}
+                    </h2>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!user">
+  <div>
+    <h1>
+      You are not permitted to use this application
+    </h1>
+  </div>
+</ng-container>

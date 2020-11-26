@@ -17,7 +17,7 @@ namespace LegacyData.Dal.Repos
         {
         }
 
-        public async Task<List<VTAInactiveAllData>> GetVtaInactiveAllDataByIdAsync(int id)
+        public async Task<List<VTAInactiveAllData>> GetVtaInactiveAllDataListByEmployeeIdAsync(int id)
         {
             var q = Table.AsQueryable();
             List<VTAInactiveAllData> vtaList = new List<VTAInactiveAllData>();
@@ -26,7 +26,7 @@ namespace LegacyData.Dal.Repos
             return await result;
         }
 
-        public async Task<List<VTAInactiveAllData>> GetVtaInactiveAllDataByNameAsync(string firstName, string lastName)
+        public async Task<List<VTAInactiveAllData>> GetVtaInactiveAllDataListByNameAsync(string firstName, string lastName)
         {
             if (string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName))
             {

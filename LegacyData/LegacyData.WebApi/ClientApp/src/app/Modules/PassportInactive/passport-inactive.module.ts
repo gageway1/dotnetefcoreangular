@@ -11,7 +11,6 @@ import { PassportInactiveFullViewComponent } from './passport-inactive-full-view
 @NgModule({
   declarations: [PassportInactiveComponent, PassportInactiveIdComponent, PassportInactiveFullViewComponent],
   imports: [
-    CommonModule,
     PassportInactiveRoutingModule,
     SharedModule,
   ],

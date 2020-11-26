@@ -50,7 +50,7 @@ namespace LegacyData.Test
         [InlineData("joe", "smith")]
         public async void ShouldBeCaseInsensitive(string firstName, string lastName)
         {
-            var result = await _passportInactiveAllDataRepo.GetPassportInactiveAllDataByNameAsync(firstName, lastName);
+            var result = await _passportInactiveAllDataRepo.GetPassportInactiveAllDataListByNameAsync(firstName, lastName);
             Assert.Single(result);
         }
     }

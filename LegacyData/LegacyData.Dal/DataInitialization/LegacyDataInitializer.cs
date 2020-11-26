@@ -91,6 +91,29 @@ namespace LegacyData.Dal.DataInitialization
                     throw;
                 }
             }
+            if (!context.Dogs.Any())
+            {
+                try
+                {
+                    IExecutionStrategy strategy = context.Database.CreateExecutionStrategy();
+                    strategy.Execute(() =>
+                    {
+                        using (var transaction = context.Database.BeginTransaction())
+                        {
+                            context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT LegacyData.Dogs" + " ON");
+                            context.Dogs.AddRange(Data.GetDogs());
+                            context.SaveChanges();
+                            context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT LegacyData.Dogs" + " OFF");
+                            transaction.Commit();
+                        }
+                    });
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            }
         }
 
         private static void ClearData(LegacyDataContext context)
@@ -99,6 +122,7 @@ namespace LegacyData.Dal.DataInitialization
             context.Database.ExecuteSqlRaw("Delete from LegacyData.CP01PassportInactiveAllData");
             context.Database.ExecuteSqlRaw("Delete from LegacyData.CP01VTAInactiveAllData");
             context.Database.ExecuteSqlRaw("Delete from LegacyData.TestNewClass");
+            context.Database.ExecuteSqlRaw("Delete from LegacyData.Dogs");
 
             ResetIdentity(context);
         }
@@ -110,7 +134,8 @@ namespace LegacyData.Dal.DataInitialization
                 //add your table here
                 "CP01VTAInactiveAllData",
                 "CP01PassportInactiveAllData",
-                "TestNewClass"
+                "TestNewClass",
+                "Dogs"
             };
             foreach (var itm in tables)
             {

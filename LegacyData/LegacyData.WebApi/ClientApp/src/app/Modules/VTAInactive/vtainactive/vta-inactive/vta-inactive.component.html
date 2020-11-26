@@ -1,19 +1,21 @@
 <div class="row mt-5">
-  <div class="col-6 mx-auto">
+  <div class="col-4 mx-auto">
     <div class="card border-dark">
       <div class="card-header bg-success text-white">
-        <div class="d-flex justify-content-center">Search By Name</div>
+        <div class="d-flex justify-content-center">
+          Search By Name
+        </div>
       </div>
       <div class="card-body">
         <div *ngIf="form" class="row">
-          <form [formGroup]="form" (ngSubmit)="submitForm(form)" class="col-12">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" formControlName="firstName" placeholder="First Name"
-                aria-label="First Name" />
+          <form [formGroup]="form" (ngSubmit)="submitForm(form)" class="col-12 mx-auto">
+            <input type="text" class="form-control mb-2" formControlName="firstName" placeholder="First Name"
+              aria-label="First Name" />
+            <div class="input-group mb-2">
               <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name"
                 aria-label="Last Name" />
               <div class="input-group-append">
-                <button type="submit" class="btn btn-outline-secondary">
+                <button type="submit" class="btn btn-info">
                   Search <fa name="search"></fa>
                 </button>
               </div>

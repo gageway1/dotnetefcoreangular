@@ -1,16 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ToastrModule } from 'ngx-toastr';
 import { NavMenuComponent } from '../NavMenu/nav-menu/navmenu-component/nav-menu.component';
 import { AppComponent } from './app-component/app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from '../Shared/shared/shared.module';
-import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
 
 @NgModule({
   declarations: [
@@ -19,13 +14,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
-    FormsModule,
     AppRoutingModule,
-    SharedModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    AngularFontAwesomeModule,
+    ToastrModule.forRoot({ positionClass: 'toast-bottom-right', closeButton: false, progressBar: true, }),
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
 

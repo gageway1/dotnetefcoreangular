@@ -23,13 +23,13 @@ namespace LegacyData.Portal.Controllers
         [HttpGet("api/getVtaInactiveAllDataById")]
         public async Task<IActionResult> GetVtaInactiveById(int id)
         {
-            return new OkObjectResult(await _iVTAInactiveAllDataRepo.GetVtaInactiveAllDataByIdAsync(id));
+            return new OkObjectResult(await _iVTAInactiveAllDataRepo.GetVtaInactiveAllDataListByEmployeeIdAsync(id));
         }
 
         [HttpGet("api/getVtaInactiveAllDataByName")]
         public async Task<IActionResult> GetVTAInactiveByName(string firstName, string lastName)
         {
-            return new OkObjectResult(await _iVTAInactiveAllDataRepo.GetVtaInactiveAllDataByNameAsync(firstName, lastName));
+            return new OkObjectResult(await _iVTAInactiveAllDataRepo.GetVtaInactiveAllDataListByNameAsync(firstName, lastName));
         }
 
         [HttpGet("api/getVtaInactiveFullEntryById")]
